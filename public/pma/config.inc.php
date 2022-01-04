@@ -15,6 +15,11 @@ declare(strict_types=1);
  */
 $cfg['blowfish_secret'] = 'qweryfdjgdfgqerYRETYDsdfqwetrwdf'; /* YOU MUST FILL IN THIS FOR COOKIE AUTH! */
 
+/*
+ * Our custom options
+ */
+$cfg['NavigationTreeEnableGrouping'] = false;
+
 /**
  * Servers configuration
  */
