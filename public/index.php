@@ -6,8 +6,7 @@
     </tr>
     <tr>
         <td>phpMyAdmin</td>
-        <td><a href="/pma/?server=2">old (current) server</a></td>
-        <td><a href="/pma/?server=1">new (upcoming) server (mariadb)</a></td>
+        <td colspan="2"><a href="/pma/?server=1">devstg &amp; prod (mariadb)</a></td>
     </tr>
 
     <tr>
