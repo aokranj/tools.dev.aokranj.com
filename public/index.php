@@ -6,7 +6,7 @@
     </tr>
     <tr>
         <td>phpMyAdmin</td>
-        <td colspan="2"><a href="/pma/?server=1">devstg &amp; prod (mariadb)</a></td>
+        <td colspan="2"><a href="/pma/">devstg &amp; prod (mariadb)</a></td>
     </tr>
 
     <tr>
