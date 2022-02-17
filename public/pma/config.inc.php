@@ -9,6 +9,12 @@
 
 declare(strict_types=1);
 
+/*
+ * This application is running behind a k8s ingress which is terminating SSL for us.
+ * Let's do this for PMA to make it set correct cookies.
+ */
+$_SERVER['HTTPS'] = 'on';
+
 /**
  * This is needed for cookie based authentication to encrypt password in
  * cookie. Needs to be 32 chars long.
@@ -19,6 +25,13 @@ $cfg['blowfish_secret'] = 'qweryfdjgdfgqerYRETYDsdfqwetrwdf'; /* YOU MUST FILL I
  * Our custom options
  */
 $cfg['NavigationTreeEnableGrouping'] = false;
+$cfg['LoginCookieValidity'] = 14400;
+
+/**
+ * Disable bogus warnings
+ */
+$cfg['MysqlSslWarningSafeHosts'] = ['127.0.0.1', 'localhost', 'mariadb-svc'];
+$cfg['PmaNoRelation_DisableWarning'] = true;
 
 /**
  * Servers configuration
@@ -29,14 +42,9 @@ $i = 0;
  * New MariaDB service
  */
 $i++;
-/* Authentication type */
 $cfg['Servers'][$i]['auth_type'] = 'cookie';
-/* Server parameters */
 $cfg['Servers'][$i]['host'] = 'mariadb-svc';
 $cfg['Servers'][$i]['user'] = '';
-$cfg['Servers'][$i]['compress'] = false;
-$cfg['Servers'][$i]['AllowNoPassword'] = false;
-
 /**
  * phpMyAdmin configuration storage settings.
  */
